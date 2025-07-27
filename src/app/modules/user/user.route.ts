@@ -5,6 +5,7 @@ const router = Router()
 
 
 router.post  ("/register",UserControllers.createUser)
+router.post  ("/all-users",UserControllers.getAllUsers)
 
 export const UserRoutes =router
 
