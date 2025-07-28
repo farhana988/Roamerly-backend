@@ -4,7 +4,6 @@ import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status-codes"
 import { UserServices } from "./user.service";
 import { catchAsync } from "../../../utils/catchAsync";
-import { User } from "./user.model";
 import { sendResponse } from "../../../utils/sendResponse";
 
 // create a user
