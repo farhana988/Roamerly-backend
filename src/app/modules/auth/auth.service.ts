@@ -20,10 +20,18 @@ const credentialsLogin = async (payload: Partial<IUser>) => {
     if (!isPasswordMatched) {
         throw new AppError(httpStatus.BAD_REQUEST, "Incorrect Password")
     }
+    const jwtPayload = {
+        userId: isUserExist._id,
+        email: isUserExist.email,
+        role: isUserExist.role
+    }
+    const accessToken = generateToken(jwtPayload, envVars.JWT_ACCESS_SECRET, envVars.JWT_ACCESS_EXPIRES)
 
+    return {
+        accessToken
+    }
 }
 
-//user - login - token (email, role, _id) - booking / payment / booking / payment cancel - token 
 
 export const AuthServices = {
     credentialsLogin
